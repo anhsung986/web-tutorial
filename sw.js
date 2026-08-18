@@ -3,9 +3,9 @@ const assetsToCache = [
   'index.html',
   'huongdan.html',
   'tags.html',
-  'css-structures.html',
+  'css.html',
   'js.html',
-  'color.html',
+  'colors.html',
   'manifest.json'
 ];
 
