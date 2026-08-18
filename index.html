@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Thông Tin Học Lập Trình Web Từ A-Z</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Thanh điều hướng cố định */
+        nav {
+            background: #1e293b;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 0.4rem 0.9rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        /* Hero Banner */
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Container & Danh mục thẻ điều hướng (Cards Grid) */
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tiêu đề chính trang chủ -->
+    <header>
+        <h1>Chào Mừng Đến Với Cẩm Nang Lập Trình Web</h1>
+        <p>Hệ thống tài liệu hướng dẫn thiết kế giao diện từ cơ bản đến nâng cao hoàn toàn trực quan bằng HTML, CSS và JavaScript.</p>
+    </header>
+
+    <!-- Các chuyên mục chính -->
+    <div class="container">
+        <div class="features-grid">
+
+            <!-- Mục 1 -->
+            <div class="feature-card">
+                <div>
+                    <div class="card-icon">📚</div>
+                    <h2>Hướng Dẫn Giao Diện</h2>
+                    <p>Học cách thiết kế chi tiết từng thành phần thực tế: Từ cấu trúc khối HTML, thông số nút bấm (button) đến hiệu ứng tương tác đẹp mắt.</p>
+                </div>
+                <a href="huongdan.html" class="card-btn">Xem Hướng Dẫn</a>
+            </div>
+
+            <!-- Mục 2 -->
+            <div class="feature-card">
+                <div>
+                    <div class="card-icon">📖</div>
+                    <h2>Từ Điển Thẻ HTML</h2>
+                    <p>Tra cứu nhanh toàn bộ các thẻ HTML cốt lõi, ý nghĩa và công dụng từ thẻ cấu trúc tài liệu đến biểu mẫu, hình ảnh.</p>
+                </div>
+                <a href="tags.html" class="card-btn">Tra Cứu Thẻ HTML</a>
+            </div>
+
+            <!-- Mục 3 -->
+            <div class="feature-card">
+                <div>
+                    <div class="card-icon">📐</div>
+                    <h2>Cấu Trúc CSS Layout</h2>
+                    <p>Làm chủ các mô hình dàn trang hiện đại mạnh mẽ nhất trong CSS như Flexbox, CSS Grid, Positioning và Box Model.</p>
+                </div>
+                <a href="css.html" class="card-btn">Khám Phá Cấu Trúc</a>
+            </div>
+
+            <!-- Mục 4 -->
+            <div class="feature-card">
+                <div>
+                    <div class="card-icon">⚡</div>
+                    <h2>JavaScript Tương Tác</h2>
+                    <p>Thổi hồn cho trang web tĩnh của bạn bằng tư duy lập trình: Biến, hàm, sự kiện tương tác và thao tác thay đổi DOM trực tiếp.</p>
+                </div>
+                <a href="js.html" class="card-btn">Học JavaScript</a>
+            </div>
+
+            <!-- Mục 5 -->
+            <div class="feature-card">
+                <div>
+                    <div class="card-icon">🎨</div>
+                    <h2>Bảng Tra Cứu Màu Sắc</h2>
+                    <p>Khám phá và tra cứu mã màu sắc trực quan toàn cầu, giúp phối màu giao diện website chuẩn xác và sinh động hơn.</p>
+                </div>
+                <a href="colors.html" class="card-btn">Tra Cứu Màu Sắc</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cổng Thông Tin Lập Trình Web Từ A-Z. Chúc bạn xây dựng thành công những sản phẩm tuyệt vời!</p>
+    </footer>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('Service Worker đăng ký thành công!', reg))
+        .catch((err) => console.log('Đăng ký Service Worker thất bại:', err));
+    });
+  }
+</script>
+
+</body>
+</html>

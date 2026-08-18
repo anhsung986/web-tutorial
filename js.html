@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang JavaScript Cơ Bản (Tương Tác Web)</title>
+    <style>
+        :root {
+            --primary: #f59e0b; /* Màu đặc trưng của JavaScript (Vàng) */
+            --primary-dark: #d97706;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Thanh điều hướng cố định */
+        nav {
+            background: #1e293b;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #0ea5e9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            color: #facc15;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .js-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .js-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: #0f172a;
+            font-weight: bold;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: inherit;
+        }
+
+        /* Khu vực kiểm tra trực tiếp (Interactive Sandbox) */
+        .interactive-box {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .interactive-label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .action-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        #output-text {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #059669;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav>
+        <div class="logo">🚀 Lập Trình Web</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Trang Chủ</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>⚡ Cẩm Nang JavaScript Cơ Bản (Tương Tác Web)</h1>
+        <p>Tìm hiểu cách thổi hồn vào trang web bằng các đoạn mã thực thi sự kiện, tính toán và thay đổi giao diện động</p>
+    </header>
+
+    <div class="container">
+
+        <!-- PHẦN 1 -->
+        <div class="js-card">
+            <span class="js-badge">Phần 1</span>
+            <h2>Biến (Variables) và Kiểu dữ liệu</h2>
+            <p>JavaScript dùng từ khóa <code>let</code> hoặc <code>const</code> để lưu trữ dữ liệu (giống như những chiếc hộp chứa đồ có dán nhãn).</p>
+            <pre><code>// Khai báo biến lưu tên và tuổi
+let tenNguoiDung = "Nguyễn Văn A";
+const tuoi = 25;
+
+// In kết quả ra bảng điều khiển console của trình duyệt
+console.log("Xin chào: " + tenNguoiDung);</code></pre>
+        </div>
+
+        <!-- PHẦN 2 -->
+        <div class="js-card">
+            <span class="js-badge">Phần 2</span>
+            <h2>Hàm (Functions) và Sự kiện (Events)</h2>
+            <p>Hàm là một tập hợp các câu lệnh thực hiện một nhiệm vụ cụ thể. Nó thường được kích hoạt thông qua các hành động của người dùng như bấm nút (<code>click</code>).</p>
+            <pre><code>// Định nghĩa hàm chào mừng
+function thongBaoChaoMung() {
+    alert("Chào mừng bạn đến với khóa học lập trình Web!");
+}</code></pre>
+
+            <div class="interactive-box">
+                <div class="interactive-label">Khu vực thử nghiệm tương tác thực tế</div>
+                <button class="action-btn" onclick="thongBaoChaoMung()">Bấm Thử Lời Chào</button>
+            </div>
+        </div>
+
+        <!-- PHẦN 3 -->
+        <div class="js-card">
+            <span class="js-badge">Phần 3</span>
+            <h2>Thao tác với DOM (Thay đổi nội dung trang web trực tiếp)</h2>
+            <p>DOM (Document Object Model) cho phép JavaScript đọc và thay đổi bất kỳ nội dung, màu sắc hoặc hình ảnh nào trên trang HTML mà không cần tải lại trang.</p>
+            <pre><code>// Đoạn mã thay đổi chữ và màu sắc của một thẻ khi được gọi
+function thayDoiNoiDung() {
+    const theTieuDe = document.getElementById("output-text");
+    theTieuDe.innerText = "🎉 Chúc mừng! Bạn vừa thay đổi nội dung trang web bằng JavaScript thành công!";
+}</code></pre>
+
+            <div class="interactive-box">
+                <div class="interactive-label">Khu vực thử nghiệm thay đổi DOM</div>
+                <button class="action-btn" onclick="thayDoiNoiDung()">Thay Đổi Nội Dung Ngay</button>
+                <div id="output-text">Chờ bấm nút để thay đổi nội dung ở đây...</div>
+            </div>
+        </div>
+
+        <!-- PHẦN 4 -->
+        <div class="js-card">
+            <span class="js-badge">Phần 4</span>
+            <h2>Câu lệnh điều kiện (If / Else)</h2>
+            <p>Giúp chương trình có khả năng "tư duy" và đưa ra các quyết định xử lý khác nhau dựa trên tình huống thực tế.</p>
+            <pre><code>let diemSo = 8;
+
+if (diemSo >= 5) {
+    console.log("Bạn đã vượt qua bài kiểm tra!");
+} else {
+    console.log("Bạn cần cố gắng ôn tập thêm nhé.");
+}</code></pre>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cẩm Nang JavaScript Cơ Bản. Biến trang web tĩnh thành ứng dụng tương tác sinh động!</p>
+    </footer>
+
+    <!-- Đoạn mã JavaScript mẫu chạy trực tiếp cho trang -->
+    <script>
+        function thongBaoChaoMung() {
+            alert("Chào mừng bạn đến với khóa học lập trình Web!");
+        }
+
+        function thayDoiNoiDung() {
+            const theTieuDe = document.getElementById("output-text");
+            theTieuDe.innerText = "🎉 Chúc mừng! Bạn vừa thay đổi nội dung trang web bằng JavaScript thành công!";
+        }
+    </script>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('Service Worker đăng ký thành công!', reg))
+        .catch((err) => console.log('Đăng ký Service Worker thất bại:', err));
+    });
+  }
+</script>
+
+</body>
+</html>

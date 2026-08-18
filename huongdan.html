@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Lập Trình Web Chi Tiết Từ A-Z</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Thanh điều hướng cố định */
+        nav {
+            background: #1e293b;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #0ea5e9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.15rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: #334155;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p, ul, ol {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: inherit;
+        }
+
+        /* Khu vực hiển thị kết quả mẫu (Demo Box) */
+        .demo-box {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .demo-label {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Các kiểu nút bấm chi tiết để hướng dẫn */
+        .btn-sample-1 {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-sample-1:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-sample-2 {
+            background-color: #10b981;
+            color: white;
+            border: 2px solid #059669;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px; /* Nút bo tròn hoàn toàn dạng viên thuốc */
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-sample-2:hover {
+            background-color: #059669;
+        }
+
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .property-table th, .property-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .property-table th {
+            background-color: #f8fafc;
+            color: var(--text-main);
+        }
+
+        .property-table td {
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng ở trên cùng -->
+    <nav>
+        <div class="logo">🚀 Lập Trình Web</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Trang Chủ</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>🎨 Cẩm Nang Lập Trình Giao Diện Web</h1>
+        <p>Học cách thiết kế chi tiết từng thành phần: Từ màu sắc, nút bấm đến bố cục nâng cao</p>
+    </header>
+
+    <div class="container">
+
+        <!-- BƯỚC 1 -->
+        <div class="step-card">
+            <span class="step-badge">Bước 1</span>
+            <h2>Hiểu về Cấu trúc Khung (HTML)</h2>
+            <p>HTML đóng vai trò định hình các khối thành phần nội dung có trên trang web. Hãy tưởng tượng bạn đang dựng cột nhà trước khi sơn sửa.</p>
+            <p>Ví dụ cách tạo một tiêu đề, một đoạn văn bản và một nút bấm cơ bản bằng HTML:</p>
+            <pre><code>&lt;div class="box"&gt;
+    &lt;h2&gt;Đăng ký tài khoản&lt;/h2&gt;
+    &lt;p&gt;Vui lòng bấm vào nút bên dưới để tiếp tục.&lt;/p&gt;
+    &lt;button class="my-button"&gt;Xác Nhận Ngay&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <!-- BƯỚC 2 -->
+        <div class="step-card">
+            <span class="step-badge">Bước 2</span>
+            <h2>Chi tiết hóa cách code một nút bấm (Button Styling)</h2>
+            <p>Nút bấm là thành phần tương tác quan trọng nhất. Để làm một nút bấm đẹp, chuyên nghiệp bằng CSS, chúng ta cần phối hợp nhiều thuộc tính chi tiết:</p>
+            
+            <h3>Bảng giải mã các thuộc tính CSS của nút bấm:</h3>
+            <table class="property-table">
+                <tr>
+                    <th>Thuộc tính CSS</th>
+                    <th>Ý nghĩa chi tiết</th>
+                    <th>Ví dụ giá trị</th>
+                </tr>
+                <tr>
+                    <td><code>background-color</code></td>
+                    <td>Màu nền của nút bấm</td>
+                    <td><code>#2563eb</code> (Xanh dương)</td>
+                </tr>
+                <tr>
+                    <td><code>color</code></td>
+                    <td>Màu sắc chữ hiển thị trên nút</td>
+                    <td><code>#ffffff</code> (Trắng)</td>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>Khoảng cách đệm bên trong (giúp nút to, dễ bấm)</td>
+                    <td><code>12px 24px</code> (Trên/Dưới Trái/Phải)</td>
+                </tr>
+                <tr>
+                    <td><code>border-radius</code></td>
+                    <td>Độ bo tròn 4 góc của nút</td>
+                    <td><code>6px</code> (Góc bo nhẹ) hoặc <code>30px</code> (Tròn xoe)</td>
+                </tr>
+                <tr>
+                    <td><code>box-shadow</code></td>
+                    <td>Tạo hiệu ứng bóng đổ nổi khối không gian 3D</td>
+                    <td><code>0 4px 6px rgba(0,0,0,0.2)</code></td>
+                </tr>
+                <tr>
+                    <td><code>cursor: pointer</code></td>
+                    <td>Đổi con trỏ chuột thành hình bàn tay khi rê vào</td>
+                    <td>Giúp người dùng biết nút này có thể bấm được</td>
+                </tr>
+            </table>
+
+            <h3>Mẫu 1: Nút bấm màu xanh hiện đại (Có hiệu ứng nổi khi di chuột)</h3>
+            <p>Mã CSS áp dụng:</p>
+            <pre><code>.btn-sample-1 {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    transition: all 0.2s ease;
+}
+
+/* Hiệu ứng khi rê chuột vào nút (:hover) */
+.btn-sample-1:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}</code></pre>
+
+            <div class="demo-box">
+                <div class="demo-label">Khu vực xem trước kết quả mẫu 1</div>
+                <button class="btn-sample-1">Bấm Thử Đi Nào!</button>
+            </div>
+
+            <h3>Mẫu 2: Nút bấm bo tròn viền xanh lá (Dạng viên thuốc)</h3>
+            <p>Mã CSS áp dụng:</p>
+            <pre><code>.btn-sample-2 {
+    background-color: #10b981;
+    color: white;
+    border: 2px solid #059669;
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-sample-2:hover {
+    background-color: #059669;
+}</code></pre>
+
+            <div class="demo-box">
+                <div class="demo-label">Khu vực xem trước kết quả mẫu 2</div>
+                <button class="btn-sample-2">Hoàn Thành Đơn Hàng</button>
+            </div>
+        </div>
+
+        <!-- BƯỚC 3 -->
+        <div class="step-card">
+            <span class="step-badge">Bước 3</span>
+            <h2>Tạo màu sắc và phong cách tổng thể cho trang web</h2>
+            <p>Để trang web có tính thẩm mỹ cao, bạn cần thiết lập bảng màu chủ đạo (Color Palette) thông qua biến CSS (CSS Variables) ở đầu file:</p>
+            
+            <pre><code>:root {
+    --primary-color: #4f46e5;    /* Màu chủ đạo (Thanh menu, nút chính) */
+    --bg-color: #f8fafc;         /* Màu nền tổng thể trang web */
+    --text-color: #1e293b;       /* Màu chữ hiển thị chính */
+    --card-background: #ffffff;  /* Màu nền của các khung thẻ nội dung */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+}</code></pre>
+            <p>Việc sử dụng biến CSS giúp bạn có thể dễ dàng thay đổi toàn bộ màu sắc của website chỉ bằng cách sửa giá trị tại một dòng duy nhất ở thẻ <code>:root</code>.</p>
+        </div>
+
+        <!-- BƯỚC 4 -->
+        <div class="step-card">
+            <span class="step-badge">Bước 4</span>
+            <h2>Kiểm tra và Xuất bản</h2>
+            <p>Sau khi viết xong mã nguồn cho HTML và CSS:</p>
+            <ol>
+                <li>Nhấn tổ hợp phím <strong>Ctrl + S</strong> (trên Windows) hoặc <strong>Cmd + S</strong> (trên Mac) để lưu file lại.</li>
+                <li>Mở file trực tiếp bằng trình duyệt Google Chrome hoặc Microsoft Edge để kiểm tra giao diện trực quan.</li>
+                <li>Sử dụng tính năng <strong>Inspect (Kiểm tra phần tử)</strong> bằng cách bấm chuột phải vào nút bấm hoặc chữ bất kỳ trên trình duyệt để tinh chỉnh thông số màu sắc theo ý muốn trực tiếp.</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hướng dẫn Lập trình Giao diện Web Chi Tiết. Chúc bạn tự tay code thành công những sản phẩm tuyệt vời!</p>
+    </footer>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('Service Worker đăng ký thành công!', reg))
+        .catch((err) => console.log('Đăng ký Service Worker thất bại:', err));
+    });
+  }
+</script>
+
+</body>
+</html>

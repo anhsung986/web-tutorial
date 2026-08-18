@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang Các Loại Cấu Trúc CSS (Layout Structures)</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Thanh điều hướng cố định */
+        nav {
+            background: #1e293b;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #0ea5e9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .layout-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .layout-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        pre {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        code {
+            font-family: inherit;
+        }
+
+        /* Khu vực xem trước mẫu giao diện */
+        .preview-box {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .preview-label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        /* 1. CSS Flexbox Demo Styles */
+        .flex-demo {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+        .flex-item {
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+            flex: 1;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* 2. CSS Grid Demo Styles */
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .grid-item {
+            background: #10b981;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav>
+        <div class="logo">🚀 Lập Trình Web</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Trang Chủ</a>
+            <a href="huongdan.html">📚 Hướng Dẫn</a>
+            <a href="tags.html">📖 Thẻ HTML</a>
+            <a href="color.html">🎨 Màu Sắc</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>📐 Các Loại Cấu Trúc CSS Layout Toàn Tập</h1>
+        <p>Tìm hiểu các mô hình dàn trang cốt lõi trong CSS hiện đại giúp bạn kiểm soát hoàn toàn giao diện website</p>
+    </header>
+
+    <div class="container">
+
+        <!-- CẤU TRÚC 1 -->
+        <div class="layout-card">
+            <span class="layout-badge">Mô hình 1</span>
+            <h2>CSS Flexbox (Flexible Box Layout)</h2>
+            <p><strong>Flexbox</strong> là mô hình dàn trang theo <strong>một chiều</strong> (hoặc theo hàng ngang hoặc theo cột dọc). Nó cực kỳ mạnh mẽ trong việc căn chỉnh khoảng cách, canh giữa và phân bổ không gian cho các phần tử bên trong container.</p>
+            
+            <p><strong>Các thuộc tính quan trọng:</strong> <code>display: flex</code>, <code>justify-content</code> (căn trục ngang), <code>align-items</code> (căn trục dọc), <code>gap</code> (khoảng cách).</p>
+
+            <pre><code>.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+.item {
+    flex: 1; /* Tự động chia đều không gian */
+}</code></pre>
+
+            <div class="preview-box">
+                <div class="preview-label">Xem trước kết quả Flexbox</div>
+                <div class="flex-demo">
+                    <div class="flex-item">Hộp 1</div>
+                    <div class="flex-item">Hộp 2</div>
+                    <div class="flex-item">Hộp 3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CẤU TRÚC 2 -->
+        <div class="layout-card">
+            <span class="layout-badge">Mô hình 2</span>
+            <h2>CSS Grid (Grid Layout)</h2>
+            <p><strong>CSS Grid</strong> là hệ thống dàn trang theo <strong>hai chiều</strong> (cả hàng ngang và cột dọc cùng lúc). Đây là công cụ tối ưu nhất để xây dựng khung tổng thể cho trang web, chia bố cục các khối dashboard hoặc danh sách sản phẩm dạng lưới phức tạp.</p>
+            
+            <p><strong>Các thuộc tính quan trọng:</strong> <code>display: grid</code>, <code>grid-template-columns</code> (chia số cột), <code>grid-template-rows</code> (chia hàng), <code>gap</code>.</p>
+
+            <pre><code>.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột bằng nhau */
+    gap: 15px;
+}</code></pre>
+
+            <div class="preview-box">
+                <div class="preview-label">Xem trước kết quả CSS Grid (Lưới 3 cột)</div>
+                <div class="grid-demo">
+                    <div class="grid-item">Cột 1</div>
+                    <div class="grid-item">Cột 2</div>
+                    <div class="grid-item">Cột 3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CẤU TRÚC 3 -->
+        <div class="layout-card">
+            <span class="layout-badge">Mô hình 3</span>
+            <h2>CSS Positioning (Định vị toạ độ)</h2>
+            <p>Thuộc tính <code>position</code> cho phép bạn đặt các phần tử ở các vị trí cố định hoặc đè chồng lên nhau trong không gian:</p>
+            <ul>
+                <li><code>static</code>: Mặc định theo luồng tự nhiên của trang.</li>
+                <li><code>relative</code>: Định vị tương đối (dịch chuyển so với vị trí gốc của nó).</li>
+                <li><code>absolute</code>: Định vị tuyệt đối so với phần tử cha gần nhất có chứa position.</li>
+                <li><code>fixed</code>: Cố định vị trí trên màn hình kể cả khi cuộn chuột (thường dùng cho thanh menu hoặc nút gọi nhanh).</li>
+                <li><code>sticky</code>: Trôi nổi dính theo màn hình khi cuộn đến một điểm nhất định.</li>
+            </ul>
+
+            <pre><code>.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}</code></pre>
+        </div>
+
+        <!-- CẤU TRÚC 4 -->
+        <div class="layout-card">
+            <span class="layout-badge">Mô hình 4</span>
+            <h2>CSS Box Model (Khung hộp nội dung)</h2>
+            <p>Mọi thành phần trên trang web đều được xem là một chiếc hộp hình chữ nhật, bao gồm 4 lớp cấu trúc tính từ trong ra ngoài:</p>
+            <ol>
+                <li><strong>Content:</strong> Nội dung thực tế bên trong (chữ, hình ảnh...).</li>
+                <li><strong>Padding:</strong> Khoảng đệm bên trong (khoảng cách từ nội dung đến viền).</li>
+                <li><strong>Border:</strong> Đường viền bao quanh.</li>
+                <li><strong>Margin:</strong> Khoảng cách lề bên ngoài (đẩy cách xa các phần tử xung quanh).</li>
+            </ol>
+
+            <pre><code>.box-model-sample {
+    width: 300px;
+    padding: 20px;   /* Đệm trong */
+    border: 2px solid #ccc; /* Viền */
+    margin: 20px auto; /* Lề ngoài và căn giữa */
+}</code></pre>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Tổng hợp Cấu trúc CSS Layout. Chúc bạn làm chủ hoàn toàn giao diện web!</p>
+    </footer>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('Service Worker đăng ký thành công!', reg))
+        .catch((err) => console.log('Đăng ký Service Worker thất bại:', err));
+    });
+  }
+</script>
+
+</body>
+</html>

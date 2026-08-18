@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2563eb">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng Hợp Ý Nghĩa Các Thẻ HTML</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Thanh điều hướng cố định */
+        nav {
+            background: #1e293b;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #0ea5e9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tag-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .tag-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        .tag-name {
+            font-family: monospace;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .tag-meaning {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav>
+        <div class="logo">🚀 Lập Trình Web</div>
+        <div class="nav-links">
+            <a href="index.html">🏠 Trang Chủ</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>📖 Từ Điển Thẻ HTML Toàn Tập</h1>
+        <p>Danh sách chi tiết ý nghĩa và công dụng của các thẻ HTML phổ biến nhất trong thiết kế web</p>
+    </header>
+
+    <div class="container">
+
+        <!-- NHÓM 1 -->
+        <h2 class="category-title">1. Nhóm Cấu Trúc Tài Liệu Cơ Bản</h2>
+        
+        <div class="tag-card" style="border-left-color: #3b82f6;">
+            <div class="tag-name">&lt;!DOCTYPE html&gt;</div>
+            <div class="tag-meaning">Khai báo loại tài liệu cho trình duyệt biết đây là chuẩn HTML5 hiện đại nhất.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #3b82f6;">
+            <div class="tag-name">&lt;html&gt;</div>
+            <div class="tag-meaning">Thẻ gốc (root) bao bọc toàn bộ nội dung của toàn bộ trang web.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #3b82f6;">
+            <div class="tag-name">&lt;head&gt;</div>
+            <div class="tag-meaning">Khu vực chứa cấu hình ngầm: tiêu đề trang, liên kết file CSS, mã hóa ký tự (không hiển thị trực tiếp).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #3b82f6;">
+            <div class="tag-name">&lt;title&gt;</div>
+            <div class="tag-meaning">Định nghĩa tiêu đề hiển thị ở tab trình duyệt web.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #3b82f6;">
+            <div class="tag-name">&lt;meta&gt;</div>
+            <div class="tag-meaning">Cung cấp thông tin siêu dữ liệu (metadata) như bảng mã ký tự (utf-8) hoặc độ rộng màn hình thiết bị di động (viewport).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #3b82f6;">
+            <div class="tag-name">&lt;body&gt;</div>
+            <div class="tag-meaning">Thân trang web. Nơi chứa mọi nội dung hiển thị trực quan cho người dùng tương tác.</div>
+        </div>
+
+        <!-- NHÓM 2 -->
+        <h2 class="category-title">2. Nhóm Phân Chia Bố Cục (Semantic & Layout)</h2>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;header&gt;</div>
+            <div class="tag-meaning">Phần đầu trang (thường chứa logo, tiêu đề lớn hoặc thanh menu điều hướng).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;nav&gt;</div>
+            <div class="tag-meaning">Khu vực chứa các liên kết điều hướng chính của trang web.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;main&gt;</div>
+            <div class="tag-meaning">Khu vực chứa nội dung chính, quan trọng nhất của tài liệu/trang web.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;section&gt;</div>
+            <div class="tag-meaning">Phân chia trang thành các phần/chủ đề nội dung độc lập rõ ràng.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;article&gt;</div>
+            <div class="tag-meaning">Chứa một bài viết hoàn chỉnh, có thể đứng độc lập (như bài blog, tin tức).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;aside&gt;</div>
+            <div class="tag-meaning">Nội dung phụ bên lề (ví dụ: thanh sidebar, quảng cáo, danh mục liên quan).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;footer&gt;</div>
+            <div class="tag-meaning">Phần chân trang (thường chứa thông tin bản quyền, liên hệ, mạng xã hội).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #10b981;">
+            <div class="tag-name">&lt;div&gt;</div>
+            <div class="tag-meaning">Khối chia vùng chung (dạng block) không mang ý nghĩa ngữ nghĩa cụ thể, dùng để gom nhóm giao diện để dễ trang trí CSS.</div>
+        </div>
+
+        <!-- NHÓM 3 -->
+        <h2 class="category-title">3. Nhóm Văn Bản & Định Dạng</h2>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;h1&gt; đến &lt;h6&gt;</div>
+            <div class="tag-meaning">Các thẻ tiêu đề từ lớn (&lt;h1&gt;) đến nhỏ (&lt;h6&gt;). &lt;h1&gt; quan trọng nhất đối với SEO.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;p&gt;</div>
+            <div class="tag-meaning">Tạo một đoạn văn bản (paragraph) thông thường.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;br&gt;</div>
+            <div class="tag-meaning">Xuống dòng một khoảng đơn (không đóng thẻ).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;hr&gt;</div>
+            <div class="tag-meaning">Tạo đường kẻ ngang phân tách nội dung.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;strong&gt; hoặc &lt;b&gt;</div>
+            <div class="tag-meaning">In đậm chữ (trong đó &lt;strong&gt; mang ý nghĩa nhấn mạnh quan trọng).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;em&gt; hoặc &lt;i&gt;</div>
+            <div class="tag-meaning">In nghiêng chữ (trong đó &lt;em&gt; biểu thị sự nhấn giọng).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #f59e0b;">
+            <div class="tag-name">&lt;span&gt;</div>
+            <div class="tag-meaning">Thẻ dòng (inline) dùng để bao bọc một đoạn chữ nhỏ để định dạng riêng biệt bằng CSS.</div>
+        </div>
+
+        <!-- NHÓM 4 -->
+        <h2 class="category-title">4. Nhóm Liên Kết, Đa Phương Tiện & Danh Sách</h2>
+
+        <div class="tag-card" style="border-left-color: #ef4444;">
+            <div class="tag-name">&lt;a&gt; (Anchor)</div>
+            <div class="tag-meaning">Tạo siêu liên kết dẫn sang trang web khác hoặc file nội bộ thông qua thuộc tính <code>href</code>.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #ef4444;">
+            <div class="tag-name">&lt;img&gt;</div>
+            <div class="tag-meaning">Chèn hình ảnh vào trang web thông qua thuộc tính đường dẫn <code>src</code>.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #ef4444;">
+            <div class="tag-name">&lt;ul&gt; và &lt;li&gt;</div>
+            <div class="tag-meaning">Tạo danh sách không có thứ tự (danh sách dấu chấm tròn).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #ef4444;">
+            <div class="tag-name">&lt;ol&gt; và &lt;li&gt;</div>
+            <div class="tag-meaning">Tạo danh sách có thứ tự (danh sách đánh số 1, 2, 3...).</div>
+        </div>
+
+        <!-- NHÓM 5 -->
+        <h2 class="category-title">5. Nhóm Biểu Mẫu (Forms & Table)</h2>
+
+        <div class="tag-card" style="border-left-color: #8b5cf6;">
+            <div class="tag-name">&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</div>
+            <div class="tag-meaning">Tạo bảng dữ liệu gồm các hàng (&lt;tr&gt;), tiêu đề cột (&lt;th&gt;) và ô dữ liệu (&lt;td&gt;).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #8b5cf6;">
+            <div class="tag-name">&lt;form&gt;</div>
+            <div class="tag-meaning">Tạo khung biểu mẫu nhập liệu để người dùng gửi thông tin (đăng nhập, tìm kiếm, đăng ký).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #8b5cf6;">
+            <div class="tag-name">&lt;input&gt;</div>
+            <div class="tag-meaning">Ô nhập liệu linh hoạt (như ô nhập chữ, mật khẩu, email, nút bấm...).</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #8b5cf6;">
+            <div class="tag-name">&lt;button&gt;</div>
+            <div class="tag-meaning">Tạo nút bấm tương tác cho người dùng click.</div>
+        </div>
+
+        <div class="tag-card" style="border-left-color: #8b5cf6;">
+            <div class="tag-name">&lt;label&gt;</div>
+            <div class="tag-meaning">Tên nhãn mô tả đi kèm cho các ô input giúp tăng tính trải nghiệm và hỗ trợ truy cập.</div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Từ Điển Thẻ HTML Toàn Tập. Thiết kế giao diện học tập trực quan.</p>
+    </footer>
+
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('Service Worker đăng ký thành công!', reg))
+        .catch((err) => console.log('Đăng ký Service Worker thất bại:', err));
+    });
+  }
+</script>
+
+</body>
+</html>
